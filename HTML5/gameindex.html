@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+  <head>
+    <title>GameIndex</title>
+    
+    <script type="text/javascript">
+      function draw_a()
+      {
+        var a_canvas = document.getElementById("a");
+	var a_context = a_canvas.getContext("2d");
+	/*a_context.fillRect(50,25,150,100);*/
+      }
+      
+      function draw_b()
+      {
+	var b_canvas = document.getElementById("b");
+	var b_context = b_canvas.getContext("2d");
+	
+	for (var x=0.5; x< 500; x+=10){
+		b_context.moveTo(x, 0);
+		b_context.lineTo(x, 375);
+	}
+	
+	for (var y=0.5; y< 500; y+=10){
+		b_context.moveTo(0, y);
+		b_context.lineTo(500, y);
+	}
+	
+	b_context.strokeStyle="#eee";
+	b_context.stroke();
+	
+	b_context.beginPath();
+	b_context.moveTo(0,40);
+	b_context.lineTo(240,40);
+	b_context.moveTo(260,40);
+	b_context.lineTo(500,40);
+	b_context.moveTo(495,35);
+	b_context.lineTo(500,40);
+	b_context.lineTo(495,45);
+	
+	b_context.moveTo(60,0);
+	b_context.lineTo(60,153);
+	b_context.moveTo(60,173);
+	b_context.lineTo(60,375);
+	b_context.moveTo(65,370);
+	b_context.lineTo(60,375);
+	b_context.lineTo(55,370);
+	
+	b_context.strokeStyle="#000";
+	b_context.stroke();
+	
+	b_context.font = "bold 12px sans-serif";
+	b_context.fillText("x", 248, 43);
+	b_context.fillText("y", 58, 165);
+	
+	b_context.textBaseline = "top";
+	b_context.fillText("( 0 , 0 ) " , 8, 5);
+	
+	b_context.textAlign = "right";
+	b_context.textBaseline = "bottom";
+	b_context.fillText("( 500, 375)", 492, 370)
+      }
+      
+      function draw_c()
+      {
+	var c_canvas = document.getElementById("c");
+	var c_context = c_canvas.getContext("2d");
+	
+	var tile = new Image();
+	c_context.src = "1r.jpg"
+	c_context.onload = function ()
+	{
+		c_context.drawImage(tile, 0, 0);
+	
+	}
+		
+      }
+    </script>
+    
+    <style type="text/css">
+      canvas { border: 2px solid black; }
+    </style>
+  </head>
+  <body>
+    <!--<canvas id="a" width="300" height="225"></canvas>-->
+	<!--<canvas id="b" width="500" height="375"></canvas>-->
+	<canvas id="c" width="117" height="113"></canvas>
+      <script>
+		var c_canvas = document.getElementById("c");
+		var c_context = c_canvas.getContext("2d");
+		
+		var tile = new Image();
+		tile.src = "1r.jpg";
+		tile.onload = function ()
+		{
+			c_context.drawImage(tile, 0, 0);
+		
+		}
+      </script>
+  </body>
+</html>
